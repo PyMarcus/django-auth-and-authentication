@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="container">
+    <h1 class="display-1">Index</h1>
+    {% if user.is_anonymous %}
+        <a class="btn btn-primary m-5" href="{% url 'login' %}">Login</a>
+    {% else %}
+        <div class="alert alert-success" role="alert">
+            Seja bem vindo(a)! {{ user.get_full_name }}
+        </div>
+        <a class="btn btn-danger" href="{% url 'logout' %}">Loggout</a>
+    {% endif %}
+
+
+</div>
+
+{% endblock %}

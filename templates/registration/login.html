@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container half p-5 row align-items-center mx-auto ">
+        <form class="form w-50 border card h-75 p-5 col-md-6 col-sm-12 mx-auto div-form justify-content-center" action="{% url 'login' %}" method="post" autocomplete="off">
+            {% csrf_token %}
+            {{ request.POST }}
+            <div class="form-group mt-0 mx-auto mb-3">
+                <img src="https://miro.medium.com/max/1200/1*xMuIOwjliGUPjkzukeWKfw.jpeg" class="rounded-circle" width="200px" height="200px">
+            </div>
+            <div class="form-group">
+                <label>Email address</label>
+                <input type="email" class="form-control" name="username" id="username" placeholder="Enter email" required>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+
+             <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+            </div>
+
+            <button type="submit" class="btn p-2 w-100 btn-primary">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}
